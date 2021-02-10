@@ -1,0 +1,2 @@
+- faire une gestion du temps
+- sauvegarder les score dans un fichier

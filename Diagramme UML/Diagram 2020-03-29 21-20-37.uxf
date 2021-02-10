@@ -1,0 +1,66 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>150</y><w>240</w><h>230</h></coordinates><panel_attributes>Carte
+-
+- couleur : string
+- valeur : string
+- ordre : int
+-
++ getCouleur(): string
++ getValeur(): string
++ getOrdre() : int
++ getSlice(int coucheCarte) : string
++ getSliceCache(int couche, int skin) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>890</x><y>160</y><w>250</w><h>430</h></coordinates><panel_attributes>Manche
+-
+-TimeDeb : int
+/-score : array
+- table : array
+- talon : pile
+- defausse : pile
+- pourretour : array
+- difficulte : string
+- skin : int
+/- cumul : int
+/- cumoin : int
+- commenceTime : string
+- pasBT : bool
+-
++ getScore() : array
++ getCommenceTime() : void
++ getTable() : array
++ getTalon() : Pile
++ getDefausse() : Pile
++ getDifficulte() : string
++ getNthPileTable(int numeroPile) : Pile
++ saisir() : string
++ jouerTable(int colonne) : void
++ afficherPossibilites(): string
++ piocherCarte(): void
++ faireretour() : string
++ jouerTour() : void
++ jouerManche(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>190</y><w>380</w><h>300</h></coordinates><panel_attributes>Pile
+-
+- pack : array 
+-
++ getCardsNumber() : int
++ getCard(int indice) : void
++ addCard(Carte carte): void
++ popCard(): Carte
++ showLast(): void
++ drawCard(): Carte
++ addPile(): void
++ getSliceCard(int numCarte, int coucheCarte): string
++ getSliceCardCache(int numCarte, int coucheCarte, int skin): string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>230</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..n
+&lt; Contenir</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>220</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+&lt; avoir 
+m1=1
+m2= *</panel_attributes><additional_attributes>150;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>370</y><w>70</w><h>130</h></coordinates><panel_attributes>lt=-
+m1=0..2
+m2=0..2
+&lt; avoir</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>480</y><w>210</w><h>200</h></coordinates><panel_attributes>Voisin
+-
+- diff : string
+-
++ getDiff(): void
++ isVoisin(Carte C1, Carte C2): bool</panel_attributes><additional_attributes></additional_attributes></element></diagram>

@@ -1,0 +1,80 @@
+<?php
+require_once "Carte.class.php";
+require_once "Pile.class.php";
+
+class Manche{
+
+	private $timeDeb; //int
+	private $temps; //int
+	private $score; //int
+	private $table; //array de Pile
+	private $talon; //Pile
+	private $defausse; //Pile
+
+	/**
+	* Constructeur de la classe Manche.
+	* Constructeur permettant de charger un jeu de cartes
+	*/
+
+	public function __construct ()
+	{
+		$JeuDeCartes = new Pile(false);
+
+		//Table
+		$this->table = array();
+		for ($i=0; $i<7; $i++){
+			$UnePile = new Pile();
+			for ($j=0; $j<5; $j++){
+				$UnePile->addCard($JeuDeCartes->drawCard());
+			}
+			array_push($this->table, clone $UnePile);
+		}
+
+		//Talon
+		$this->talon = new Pile();
+		for ($i=0; $i<20; $i++){
+			$this->talon->addCard($JeuDeCartes->drawCard());
+		}
+
+		//Defausse
+		$this->defausse = new Pile();
+		$this->defausse->addCard($JeuDeCartes->drawCard());
+
+		$this->timeDeb = time();
+		$this->temps = 0;
+		$this->score = 0;
+
+	}
+
+	public function getTable():array{
+		return $this->table;
+	}
+
+	public function getTalon():Pile{
+		return $this->talon;
+	}
+
+	public function getDefausse():Pile{
+		return $this->defausse;
+	}
+	/**
+	 * Retourne la Pile de la table avec le numéro de la pile mis en paramètre.
+	 */
+	public function getNthPileTable(int $numeroPile=0):Pile{
+		return $this->getTable()[$numeroPile];
+	}
+
+
+	public function __toString():String{
+		$res = "";
+		
+			for ($i=0;$i<4;$i++){
+				for ($j=0; $j<7; $j++){
+					$res = $res.$this->getNth($k)->getCard($j)->getSlice($k);
+				}
+			}
+		}
+		return $res;
+	}
+
+}
